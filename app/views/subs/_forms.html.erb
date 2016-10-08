@@ -1,0 +1,11 @@
+<% url = sub.persisted? ? sub_url(sub) : subs_url%>
+<% method = sub.persisted? ? "patch" : "post"%>
+
+<form action=" <%= url %> " method="post">
+<input type="hidden" name="_method" value="<%= method %>">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+<label>Subreddit Name<input type="text" name="sub[title]" value=" <%= @sub.title %>"></label><br>
+<label>Subreddit description<br><textarea name="sub[description]" rows="8" cols="40"><%= @sub.description %></textarea></label><br>
+<input type="submit">
+</form>

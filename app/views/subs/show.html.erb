@@ -1,0 +1,14 @@
+<h1> <%= @sub.title %> </h1>
+<p>
+  <label>Description:</label>
+<%= @sub.description %>
+</p>
+
+<%= link_to "Edit", edit_sub_url(@sub) if @sub.moderator_id == current_user.id %>
+
+<ul>
+  <% @sub.posts.each do |post| %>
+  <li> <%= link_to "#{post.title}", post_url(post) %></li>
+<% end %>
+</ul>
+<%= button_to "New Post", new_sub_post_url(@sub), method: :get %>

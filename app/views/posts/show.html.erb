@@ -1,0 +1,8 @@
+<h1> <%= @post.title %> </h1>
+<p>
+  <label>Content:</label>
+<%= @post.content %>
+</p>
+
+<%= button_to "Edit", edit_post_url(@post) if @post.user_id == current_user.id %>
+<%= button_to "Delete", post_url(@post), method: :delete %>
